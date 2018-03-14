@@ -18,6 +18,7 @@ Additionally, the project utilizes the new Context API and soon will utilize Sus
 I have been building React apps for awhile and I have come to the conclusion that this structure is what works best for my work flow. 
 
 **Assets:** This is for any images, svgs, icons etc.
+
 **Components:** Only stateless components here. All events and dynamic text are passed as props.
 
 * These should adhere to the AirBnB syntax as:
@@ -28,13 +29,13 @@ I have been building React apps for awhile and I have come to the conclusion tha
 **Containers:** Each container is a class based function that holds a local state object for that particular route. All components are referenced in the render method.
 For Context: The routes are wrapped as Providers so that all child components in its render method have access to state and actions. This way, if a child component nested 3 nodes deep calls a method that updates its parent containers state, all children of this container are re-rendered and the new state is passed.
 
-**Style** Contains all colors, media queries, global font sizes, colors etc.
+**Style:** Contains all colors, media queries, global font sizes, colors etc.
 
 * Colors: Object that is referenced any time inline css-in-js is used.
 * Theme: Object with media queries, box sizes, scroll-bar etc.
 * Style: SCSS file with each container/component specific style
 
-**Utilities** Tests, Service Workers, all other items.
+**Utilities:** Tests, Service Workers, all other items.
 
 ## Tests
 

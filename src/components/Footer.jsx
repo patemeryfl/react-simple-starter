@@ -1,6 +1,6 @@
 import React, { Fragment } from 'react';
 
-const Footerr = () => (
+const Footer = () => (
     <Fragment>Footer Works</Fragment>
 );
 

@@ -1,4 +1,5 @@
-import React from 'react';
+import React, { Fragment } from 'react';
+import ReactDOM from 'react-dom';
 import { hot } from 'react-hot-loader';
 import { BrowserRouter as Router, Route } from 'react-router-dom';
 import { Header, Footer } from './components';
@@ -8,13 +9,17 @@ class App extends React.Component {
     render() {
         return(
             <Router>
-                <Header />
-                <Route exact path='/' component={Home}/>
-                <Route path='/about' component={About}/>
-                <Footer />
+                <Fragment>
+                    <Header />
+                    <Route exact path='/' component={Home}/>
+                    <Route path='/about' component={About}/>
+                    <Footer />
+                </Fragment>
             </Router>
         )
     }
 }
 
-export default hot(module)(App);
+ReactDOM.render(<App />, document.getElementById('root'));
+
+module.hot.accept();
