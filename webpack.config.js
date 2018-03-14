@@ -1,16 +1,22 @@
+const path = require('path');
 const webpack = require('webpack');
 
 module.exports = {
   entry: [
     'react-hot-loader/patch',
-    './src/App.jsx'
+    './src/App.jsx',
   ],
   module: {
-    loaders: [
+    rules: [
       {
-        test: /\.jsx?$/,
+        test: /\.(js|jsx)$/,
         exclude: /node_modules/,
-        loaders: ['babel-loader'],
+        use: ['babel-loader'],
+      },
+      {
+        test: /\.js$/,
+        exclude: /node_modules/,
+        use: ['eslint-loader'],
       },
       {
         test: /\.scss$/,
@@ -26,18 +32,18 @@ module.exports = {
     ],
   },
   resolve: {
-    extensions: ['*', '.js', '.jsx']
+    extensions: ['*', '.js', '.jsx'],
   },
   output: {
-    path: __dirname + '/public',
+    path: path.join(__dirname, '/public'),
     publicPath: '/',
-    filename: 'bundle.js'
+    filename: 'bundle.js',
   },
   plugins: [
-    new webpack.HotModuleReplacementPlugin()
+    new webpack.HotModuleReplacementPlugin(),
   ],
   devServer: {
     contentBase: './public',
-    hot: true
-  }
+    hot: true,
+  },
 };
