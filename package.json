@@ -4,6 +4,7 @@
   "description": "Simple React Starter with React 16, Context, and Routing",
   "main": "index.js",
   "scripts": {
+    "start": "webpack-dev-server --hot",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "repository": {
@@ -15,5 +16,11 @@
     "simple"
   ],
   "author": "Pat Emery",
-  "license": "MIT"
+  "license": "MIT",
+  "dependencies": {
+    "react": "^16.3.0-alpha.1",
+    "react-dom": "^16.3.0-alpha.1",
+    "react-hot-loader": "^4.0.0",
+    "react-router-dom": "^4.2.2"
+  }
 }
