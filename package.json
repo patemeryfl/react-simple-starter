@@ -1,0 +1,19 @@
+{
+  "name": "react-simple-starter",
+  "version": "1.0.0",
+  "description": "Simple React Starter with React 16, Context, and Routing",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://www.github.com/patemeryfl/react-simple"
+  },
+  "keywords": [
+    "react",
+    "simple"
+  ],
+  "author": "Pat Emery",
+  "license": "MIT"
+}
