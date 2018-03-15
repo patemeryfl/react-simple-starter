@@ -4,6 +4,8 @@
 
 There are so many different npm packages out there to get started with a React project. I have been using create-react-app for a long time, but I have been wanting to experiment with the latest React features.
 
+I built this from the ground up including the webpack config to ensure everything works together.
+
 So this is a React starter, complete with react-router v4, hot-reload &amp; sass.
 Additionally, the project utilizes the new Context API and soon will utilize Suspense once it has some more support.
 
@@ -11,7 +13,7 @@ Additionally, the project utilizes the new Context API and soon will utilize Sus
 
 `npm i -g react-simple-starter` to install the package.
 
-`simple-react-app folderName` to start the boilerplate into `folderName` folder.
+`react-simple-starter folderName` to start the boilerplate into `folderName` folder.
 
 ## Project structure
 
