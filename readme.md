@@ -22,6 +22,7 @@ I have been building React apps for awhile and I have come to the conclusion tha
 **Components:** Only stateless components here. All events and dynamic text are passed as props.
 
 * These should adhere to the AirBnB syntax as:
+
     `const myButton = ({text, action}) => (<button onClick={action}>Hello {text}</button>)`
 * Use Fragments to wrap components with multiple html elements
 * Style is set by global colors/theme in utilities section.
@@ -43,7 +44,7 @@ Tests are written with the Mocha and Jasmine.
 
 ## Eslint
 
-This project uses AirBnB Javascript specs so you can write error-free react and javasctipt code, if you use Visual Studio Code, you can install eslint from the extension tab to activate this function, other editors just google _name of the editor + eslint_ you will find how to enable it for your editor.
+This project uses AirBnB Javascript specs so you can write error-free react and javascript code, if you use Visual Studio Code, you can install eslint from the extension tab to activate this function, other editors just google _name of the editor + eslint_ you will find how to enable it for your editor.
 
 ## How to contribute
 

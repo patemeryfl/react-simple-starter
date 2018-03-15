@@ -11,20 +11,20 @@ module.exports = {
       {
         test: /\.(js|jsx)$/,
         exclude: /node_modules/,
-        use: ['babel-loader'],
+        loaders: ['babel-loader'],
       },
       {
         test: /\.js$/,
         exclude: /node_modules/,
-        use: ['eslint-loader'],
+        loaders: ['eslint-loader'],
       },
       {
         test: /\.scss$/,
-        loader: 'style-loader!css-loader!sass-loader',
+        use: ['style-loader', 'css-loader', 'sass-loader'],
       },
       {
         test: /\.(jpe?g|png|gif|svg)$/i,
-        loader: 'url-loader',
+        loaders: 'url-loader',
         options: {
           limit: 10000,
         },
@@ -32,7 +32,7 @@ module.exports = {
     ],
   },
   resolve: {
-    extensions: ['*', '.js', '.jsx'],
+    extensions: ['*', '.js', '.jsx', 'scss'],
   },
   output: {
     path: path.join(__dirname, '/public'),
@@ -45,5 +45,6 @@ module.exports = {
   devServer: {
     contentBase: './public',
     hot: true,
+    stats: 'minimal',
   },
 };

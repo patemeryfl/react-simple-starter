@@ -1,15 +1,20 @@
-import React, { Fragment } from 'react';
+import React from 'react';
 
 class About extends React.Component {
-    state = {
+  constructor(props) {
+    super(props);
+    this.state = {
 
-    }
+    };
+  }
 
-    render() {
-      return (
-        <Fragment>About Works</Fragment>
-      );
-    }
+  render() {
+    return (
+      <div className="about">
+        About Works
+      </div>
+    );
+  }
 }
 
 export default About;

@@ -1,14 +1,19 @@
 import React, { Fragment } from 'react';
 
 class Home extends React.Component {
-    state = {
+  constructor(props) {
+    super(props);
+    this.state = {
 
-    }
-    render() {
-      return (
-        <Fragment>Home Works</Fragment>
-      );
-    }
+    };
+  }
+  render() {
+    return (
+      <div className="home">
+        Home Works
+      </div>
+    );
+  }
 }
 
 export default Home;

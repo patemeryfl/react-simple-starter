@@ -4,6 +4,7 @@ import { hot } from 'react-hot-loader';
 import { BrowserRouter as Router, Route } from 'react-router-dom';
 import { Header, Footer } from './components';
 import { Home, About } from './containers';
+import './style/global.scss';
 
 const App = () => (
   <Router>
