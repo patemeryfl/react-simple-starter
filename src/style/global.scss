@@ -13,6 +13,21 @@ body, html {
     padding: 0;
 }
 
+a { 
+    text-decoration: none;
+}
+
+article, aside, footer, header, nav, section {
+    display: block;
+}
+
+.container {
+    padding-left: 20px;
+    padding-right: 20px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
 .home {
     margin: 60px 0 0 0;
     color: $white;
@@ -37,26 +52,21 @@ body, html {
     height: 50px;
     top: 0;
     left: 0;
-    .brand {
+
+    svg { fill: $brand; }
+    a {
         display: flex;
-        flex-direction: row;
+        margin-right: 10;
+        height: 100%;
         align-items: center;
-        height: 60px;
-        //Medium Large = 50, small 40
-        a {
-            display: flex;
-            margin-right: 10;
-            height: 100%;
-            align-items: center;
-            color: $brand;
-        }
-        span { //Brand name
-            color: $brand;
-            margin-left: 10;
-            font-weight: 700;
-            font-size: 20;
-            line-height: 20px;
-        }
+        color: $brand;
+    }
+    span { //Brand name
+        color: $brand;
+        margin-left: 10;
+        font-weight: 700;
+        font-size: 20;
+        line-height: 20px;
     }
     nav {
         display: flex;
@@ -74,8 +84,8 @@ body, html {
             align-items: center;
             color: $white;
             transition: color 0.2s ease-out;
-            padding-left: 15;
-            padding-right: 15;
+            padding-left: 15px;
+            padding-right: 15px;
             font-weight: 300;
           
             &:focus {
@@ -88,6 +98,14 @@ body, html {
             }
         }
     }
+}
+
+.brand {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    height: 60px;
+    //Medium Large = 50, small 40
 }
 
 .footer {
