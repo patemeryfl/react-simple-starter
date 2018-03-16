@@ -1,36 +1,30 @@
-import React from 'react';
+import React, { createContext } from 'react';
 import Post from '../components/Post';
-import store from '../store/actions';
 
-const { Provider, Consumer } = React.createContext();
-
-const PostContext = () => (
-  <Consumer>
-    {({ state, actions }) => (
-      <Post />
-    )}
-  </Consumer>
-);
+const { Provider, Consumer } = createContext();
 
 class Blog extends React.Component {
-  constructor(props) {
-    super(props);
-    this.state = {
-      user: null,
-    };
+
+  state = {
+    user: null,
+  }
+  actions = {
+    getUser: async () => {
+      const response = await fetch('https://api.github.com/users/patemeryfl');
+      const body = await response.json();
+      return this.setState({ user: body.login })
+    },
   }
 
   render() {
-    const { state, actions } = store;
     return (
       <div className="blog">
-        <p>{ this.state.user }</p>
-        <Provider value={{ state, actions }} >
-          <PostContext />
+        <Provider value={{ state: this.state, actions: this.actions }} >
+          <Post />
         </Provider>
       </div>
     );
   }
 }
 
-export default Blog;
+export { Blog, Consumer };

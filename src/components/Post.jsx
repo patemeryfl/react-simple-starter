@@ -1,11 +1,9 @@
 import React from 'react';
 import Comment from './Comment';
 
-class Post extends React.Component {
-  render() {
-    return (<Comment />);
-  }
-}
+const Post = () => (
+  <Comment />
+)
 
 export default Post;
 

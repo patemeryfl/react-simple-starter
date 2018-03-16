@@ -1,19 +1,23 @@
-import React, { Fragment } from 'react';
+import React, { Fragment, createContext } from 'react';
+
+const { Provider, Consumer } = createContext();
 
 class Home extends React.Component {
-  constructor(props) {
-    super(props);
-    this.state = {
+  state = {
 
-    };
+  }
+  actions = {
+
   }
   render() {
     return (
       <div className="home">
-        Home Works
+        <Provider>
+          Home Works
+        </Provider>
       </div>
     );
   }
 }
 
-export default Home;
+export { Home, Consumer };

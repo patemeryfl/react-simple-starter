@@ -1,13 +1,12 @@
 import React from 'react';
 
 class About extends React.Component {
-  constructor(props) {
-    super(props);
-    this.state = {
+  state = {
 
-    };
   }
+  actions = {
 
+  }
   render() {
     return (
       <div className="about">
@@ -17,4 +16,4 @@ class About extends React.Component {
   }
 }
 
-export default About;
+export { About };
