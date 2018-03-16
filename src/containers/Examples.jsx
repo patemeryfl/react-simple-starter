@@ -1,9 +1,9 @@
 import React, { createContext } from 'react';
-import Post from '../components/Post';
+import { Post } from '../components';
 
 const { Provider, Consumer } = createContext();
 
-class Blog extends React.Component {
+class Examples extends React.Component {
 
   state = {
     user: null,
@@ -18,7 +18,7 @@ class Blog extends React.Component {
 
   render() {
     return (
-      <div className="blog">
+      <div className="examples">
         <Provider value={{ state: this.state, actions: this.actions }} >
           <Post />
         </Provider>
@@ -27,4 +27,4 @@ class Blog extends React.Component {
   }
 }
 
-export { Blog, Consumer };
+export { Examples, Consumer };

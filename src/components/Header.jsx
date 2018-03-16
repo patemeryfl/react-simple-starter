@@ -8,17 +8,21 @@ const Header = () => (
     <header className="header">
       <Container>
         <div className="brand">
-          <a href="https://www.reactjs.org">
+          <a href="https://www.github.com/patemeryfl/react-simple-starter">
             <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24">
               <path d={icons.social.rocket} />
             </svg>
+            <span>
+              Simple Starter
+            </span>
           </a>
+          <nav>
+            <Link to="/" href="/">Home</Link>
+            <Link to="/about" href="/about">About</Link>
+            <Link to="/examples" href="/examples">Examples</Link>
+            <a /> <a /><a />
+          </nav>
         </div>
-        <nav>
-          <Link to="/" href="/">Home</Link>
-          <Link to="/about" href="/about">About</Link>
-          <Link to="/blog" href="/blog">Blog</Link>
-        </nav>
       </Container>
     </header>
   </Fragment>

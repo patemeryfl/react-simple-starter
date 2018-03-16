@@ -1,5 +1,5 @@
 import { Home } from './Home';
 import { About } from './About';
-import { Blog } from './Blog';
+import { Examples } from './Examples';
 
-export { Home, About, Blog };
+export { Home, About, Examples };

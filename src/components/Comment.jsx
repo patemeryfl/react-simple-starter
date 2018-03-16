@@ -1,5 +1,5 @@
 import React, { Fragment } from 'react';
-import { Consumer } from '../containers/Blog';
+import { Consumer } from '../containers/Examples';
 
 const Comment = () => (
   <Consumer>
