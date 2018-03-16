@@ -2,7 +2,9 @@ const path = require('path');
 const webpack = require('webpack');
 
 module.exports = {
+  devtool: 'source-map',
   entry: [
+    'babel-polyfill',
     'react-hot-loader/patch',
     './src/App.jsx',
   ],
