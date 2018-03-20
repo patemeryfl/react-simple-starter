@@ -4,7 +4,6 @@ import { Post } from '../components';
 const { Provider, Consumer } = createContext();
 
 class Examples extends React.Component {
-
   state = {
     user: null,
   }
@@ -12,7 +11,7 @@ class Examples extends React.Component {
     getUser: async () => {
       const response = await fetch('https://api.github.com/users/patemeryfl');
       const body = await response.json();
-      return this.setState({ user: body.login })
+      return this.setState({ user: body.login });
     },
   }
 

@@ -3,7 +3,7 @@ import { Consumer } from '../containers/Examples';
 
 const Comment = () => (
   <Consumer>
-    {({state, actions}) => (
+    {({ state, actions }) => (
       <Fragment>
         <button onClick={actions.getUser}>Get GitHub</button>
         <span>{state.user}</span>
