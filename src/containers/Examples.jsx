@@ -1,11 +1,18 @@
 import React, { createContext } from 'react';
-import { Post } from '../components';
+import ReactMarkdown from 'react-markdown';
+import { Post, SideNav } from '../components';
 
 const { Provider, Consumer } = createContext();
 
 class Examples extends React.Component {
   state = {
     user: null,
+    currentExample: 'Blog',
+    examples: [
+      'Blog',
+      'Async',
+      'Navigation',
+    ],
   }
   actions = {
     getUser: async () => {
@@ -13,13 +20,22 @@ class Examples extends React.Component {
       const body = await response.json();
       return this.setState({ user: body.login });
     },
+    handleNavigation: (currentExample) => {
+      this.setState({ currentExample });
+    },
   }
 
   render() {
     return (
       <div className="examples">
         <Provider value={{ state: this.state, actions: this.actions }} >
-          <Post />
+          <aside>
+            <h2>Examples</h2>
+            <SideNav items={this.state.examples} />
+          </aside>
+          <article>
+            <ReactMarkdown source="# content" />
+          </article>
         </Provider>
       </div>
     );
