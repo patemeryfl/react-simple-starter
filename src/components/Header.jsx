@@ -17,7 +17,7 @@ const Header = () => (
         </a>
         <Link to="/" href="/">Home</Link>
         <Link to="/about" href="/about">About</Link>
-        <Link to="/examples" href="/examples">Examples</Link>
+        <Link to="/features" href="/features">Features</Link>
       </nav>
     </header>
   </Fragment>

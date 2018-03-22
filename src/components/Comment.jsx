@@ -1,11 +1,11 @@
 import React, { Fragment } from 'react';
-import { Consumer } from '../containers/Examples';
+import { Consumer } from '../containers/Features';
 
 const Comment = () => (
   <Consumer>
     {({ state, actions }) => (
       <Fragment>
-        <button onClick={actions.getUser}>Get GitHub</button>
+        <button onClick="">Get GitHub</button>
         <span>{state.user}</span>
       </Fragment>
     )}

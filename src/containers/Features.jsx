@@ -4,15 +4,37 @@ import { Post, SideNav } from '../components';
 
 const { Provider, Consumer } = createContext();
 
-class Examples extends React.Component {
+const Blog = `
+# Blog Tutorial
+
+One of the most common websites are blogs or will have a comments section. You often
+will have a series of html components like this:
+
+### Container
+
+### Components
+
+* **Post**
+
+* **Comment**
+
+### Working Example
+
+
+`;
+
+class Features extends React.Component {
   state = {
     user: null,
-    currentExample: 'Blog',
     examples: [
       'Blog',
       'Async',
       'Navigation',
     ],
+    content: 'Blog',
+  }
+  componentWillMount() {
+    // this.actions.getMarkdown(this.state.content);
   }
   actions = {
     getUser: async () => {
@@ -20,8 +42,12 @@ class Examples extends React.Component {
       const body = await response.json();
       return this.setState({ user: body.login });
     },
-    handleNavigation: (currentExample) => {
-      this.setState({ currentExample });
+    getMarkdown: async (example) => {
+      const response = await fetch(`
+        https://raw.githubusercontent.com/patemeryfl/react-simple-starter/master/src/assets/docs/examples/${example}.md
+      `);
+      const body = await response.text();
+      return this.setState({ content: body });
     },
   }
 
@@ -34,7 +60,7 @@ class Examples extends React.Component {
             <SideNav items={this.state.examples} />
           </aside>
           <article>
-            <ReactMarkdown source="# content" />
+            <ReactMarkdown source={Blog} />
           </article>
         </Provider>
       </div>
@@ -42,4 +68,4 @@ class Examples extends React.Component {
   }
 }
 
-export { Examples, Consumer };
+export { Features, Consumer };
