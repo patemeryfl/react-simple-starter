@@ -1,7 +1,7 @@
 import React, { createContext } from 'react';
-import hljs from 'highlight.js';
+import Prism from 'prismjs';
 import { Link } from 'react-router-dom';
-import { Flex, CodeBlock } from '../components';
+import { Flex } from '../components';
 
 const { Provider, Consumer } = createContext();
 
@@ -9,9 +9,8 @@ class Home extends React.Component {
   state = {
 
   }
-  componentWillMount() {
-    hljs.initHighlightingOnLoad();
-  }
+  componentDidMount() { Prism.highlightAll(); }
+  componentDidUpdate() { Prism.highlightAll(); }
   actions = {
 
   }
@@ -28,21 +27,13 @@ class Home extends React.Component {
           <Flex type="row">
             <div>
               <h2>Easy to Get Started</h2>
-              <ul>
-                <li>
-                  <CodeBlock lang="js">
-                    <code>
-                      {`export default class TodoList extends Component {
-                          state = { todos: [], text: '' };
-                          setText = e => {
-                          this.setState({ text: e.target.value });
-                      };`}
-                    </code>
-                  </CodeBlock>
-                </li>
-                <li><pre className="highlight"><code>cd react-simple starter</code></pre></li>
-                <li><pre><code>npm install</code></pre></li>
-              </ul>
+              <pre>
+                <code className="language-bash">
+                  {`npm install simple-react-starter
+cd react-simple starter
+npm install`}
+                </code>
+              </pre>
             </div>
             <div>
               <h2>Latest Features</h2>

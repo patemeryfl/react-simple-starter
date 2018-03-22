@@ -28,20 +28,20 @@ import React, { createContext } from 'react'
 import { Post, Comment, Avatar } from './components'
 
 const { Provider, Consumer } = createContext();
-const database = 'http://www.mysite.com';
+const database = 'http://api.mysite.com';
 
 class Blog extends React.Component {
   state = {
     blogs: []
   }
-  actions: {
+  actions = {
     getBlogs: async () => {
         const response = await fetch(`${database}/blogs`);
         const blogs = response.json();
         this.setState({ blogs });
-    }
+    },
     replyToComment: async (id, comment) => {
-        const response = await fetch(database, comment, method: 'POST')
+        const response = await fetch(database, comment, { method: 'POST' })
     }
   }
   componentWillMount() {
@@ -50,7 +50,7 @@ class Blog extends React.Component {
   render() {
     return(
         <Provider value={{ state: this.state, actions: this.actions }}>
-            {this.state.blogs.map(post => <Post data={post} />)}
+          {this.state.blogs.map(post => <Post data={post} />)}
         </Provider>
     )
   }
@@ -95,7 +95,7 @@ const CommentBox = () => (
     )}
   </Consumer>
 )
-export default Comment;
+export default CommentBox;
 ```
 
 So whats going on here? I am referencing the state and the actions inside the consumer component. I am only utilizing the actions so you can omit the state if desired. Since we wrap the html in a Consumer component, we can use this fancy arrow function to get our replyToComment action. When React renders this, state and action will be the objects we passed into the value prop of the Provider.

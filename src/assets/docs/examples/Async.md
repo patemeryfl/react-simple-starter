@@ -5,28 +5,31 @@ Another key feature of this starter is the use of async functions. Babel has bee
 ## GitHub Profile Fetcher
 
 ```javascript
-import React from 'react';
+import React, { Fragment } from 'react';
 
 class GitHubProfile extends React.Component {
   state = {
     text: 'Enter your GitHub username here!'
-    user: {
+    user: 'patemeryfl',
+    fetchedUser: {
+      avatar: null,
       name: null,
-      stars: null,
+      username: null,
       followers: null,
     }
   }
   actions = {
-    handleInput: ({text}) => {
-      this.setState({ text: text.target.value  })
+    handleInput: (event) => {
+      this.setState({ user: event.target.value  })
     },
-    getUser: async ({user}) => {
-      const response = await fetch(`https://api.github.com/users/${user}`);
+    getUser: async () => {
+      const response = await fetch(`https://api.github.com/users/${this.state.user}`);
       const profile = await response.json();
       return this.setState({
-          user: {
-            name: profile.login,
-            stars: profile.stars,
+          fetchedUser: {
+            avatar: profile.avatar_url,
+            name: profile.name,
+            username: profile.login,
             followers: profile.followers
           }
         });
@@ -36,15 +39,15 @@ class GitHubProfile extends React.Component {
     this.actions.getUser("patemeryfl");
   }
   render() {
-    { name, stars, followers } = this.state.user;
+    const { avatar, name, username, followers } = this.state.fetchedUser;
     return(
-      <form onSubmit={this.getUser}>
-        <input placeholder={this.state.text} onChange={this.handleInput} />
-        <button type="submit">Fetch your profile info</button>
-      </form>
-      <strong>Name:</strong><p>{name}</p>
-      <strong>Stars:</strong><p>{stars}</p>
-      <strong>Followers:</strong><p>{followers}</p>
+      <Fragment>
+        <input placeholder={this.state.text} onChange={this.actions.handleInput} />
+        <button onClick={this.state.getUser}>Fetch your profile info</button>
+        <strong>Name:</strong><p>{name}</p>
+        <strong>Stars:</strong><p>{stars}</p>
+        <strong>Followers:</strong><p>{followers}</p>
+      </Fragment>
     )
   }
 }

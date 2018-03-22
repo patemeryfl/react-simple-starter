@@ -12,6 +12,3 @@ node_modules
 
 # Prod Bundle
 build
-
-#auth
-src/assets/auth.js

@@ -1,27 +1,12 @@
 import React, { createContext } from 'react';
 import ReactMarkdown from 'react-markdown';
+import Prism from 'prismjs';
+import 'prismjs/components/prism-jsx';
+import 'prismjs/themes/prism-tomorrow.css';
 import { Post, SideNav } from '../components';
+import { Blog, GitHub } from '../examples';
 
 const { Provider, Consumer } = createContext();
-
-const Blog = `
-# Blog Tutorial
-
-One of the most common websites are blogs or will have a comments section. You often
-will have a series of html components like this:
-
-### Container
-
-### Components
-
-* **Post**
-
-* **Comment**
-
-### Working Example
-
-
-`;
 
 class Features extends React.Component {
   state = {
@@ -31,27 +16,43 @@ class Features extends React.Component {
       'Async',
       'Navigation',
     ],
-    content: 'Blog',
+    example: 'Blog',
+    content: null,
   }
   componentWillMount() {
-    // this.actions.getMarkdown(this.state.content);
+    this.actions.getMarkdown(this.state.example);
+  }
+  componentDidMount() {
+    Prism.highlightAll();
+  }
+  componentDidUpdate() {
+    Prism.highlightAll();
   }
   actions = {
-    getUser: async () => {
-      const response = await fetch('https://api.github.com/users/patemeryfl');
-      const body = await response.json();
-      return this.setState({ user: body.login });
-    },
     getMarkdown: async (example) => {
       const response = await fetch(`
         https://raw.githubusercontent.com/patemeryfl/react-simple-starter/master/src/assets/docs/examples/${example}.md
       `);
       const body = await response.text();
-      return this.setState({ content: body });
+      return this.setState({ example, content: body });
     },
   }
 
   render() {
+    let example;
+    if (this.state.content === null) {
+      return (<div>Loading...</div>);
+    }
+    switch (this.state.example) {
+      case 'Blog':
+        example = <Blog />;
+        break;
+      case 'Async':
+        example = <GitHub />;
+        break;
+      default:
+        example = null;
+    }
     return (
       <div className="examples">
         <Provider value={{ state: this.state, actions: this.actions }} >
@@ -60,7 +61,8 @@ class Features extends React.Component {
             <SideNav items={this.state.examples} />
           </aside>
           <article>
-            <ReactMarkdown source={Blog} />
+            <ReactMarkdown source={this.state.content} />
+            {example}
           </article>
         </Provider>
       </div>
