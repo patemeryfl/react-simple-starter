@@ -4,7 +4,7 @@ import Prism from 'prismjs';
 import 'prismjs/components/prism-jsx';
 import 'prismjs/themes/prism-tomorrow.css';
 import { Post, SideNav } from '../components';
-import { Blog, GitHub } from '../examples';
+import { Blog, GitHub, Auth } from '../examples';
 
 const { Provider, Consumer } = createContext();
 
@@ -15,8 +15,9 @@ class Features extends React.Component {
       'Blog',
       'Async',
       'Navigation',
+      'Higher Order Components',
     ],
-    example: 'Blog',
+    example: 'HOC',
     content: null,
   }
   componentWillMount() {
@@ -49,6 +50,9 @@ class Features extends React.Component {
         break;
       case 'Async':
         example = <GitHub />;
+        break;
+      case 'HOC':
+        example = Auth;
         break;
       default:
         example = null;
