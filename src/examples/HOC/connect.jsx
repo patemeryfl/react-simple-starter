@@ -6,8 +6,8 @@ const state = {
   loggedIn: false,
 };
 const actions = {
-  logIn: () => this.setState({ loggedIn: true }),
-  logOut: () => this.setState({ loggedIn: false }),
+  logIn: () => ([...state, { loggedIn: true }]),
+  logOut: () => ([...state, { loggedIn: false }]),
 };
 
 export default Component => (

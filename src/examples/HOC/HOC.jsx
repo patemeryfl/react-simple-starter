@@ -7,8 +7,8 @@ class Auth extends React.Component {
       const { state, actions } = this.props.context;
       return (
         <div>
-          <span> Logged In?: </span>{state.loggedIn}
-          <button onClick={actions.logIn}>Sign In</button>
+          <span> Logged In?: </span>{state.loggedIn ? 'Yes' : 'No'}
+          <button onClick={() => actions.logIn()}>Sign In</button>
         </div>
       );
     }
