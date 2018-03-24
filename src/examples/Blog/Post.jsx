@@ -1,11 +1,12 @@
-import React, { Fragment } from 'react';
+import React from 'react';
 import Comment from './Comment';
 
 const Post = ({ post }) => (
-  <Fragment>
+  <div className="Post">
     <h1>{post.title}</h1>
     <p>{post.body}</p>
-    {post.comments.map(comment => <Comment comment={comment} />)}
-  </Fragment>
+    <h3>Comments</h3>
+    {post.comments.map(comment => <Comment key={comment.id} comment={comment} />)}
+  </div>
 );
 export default Post;

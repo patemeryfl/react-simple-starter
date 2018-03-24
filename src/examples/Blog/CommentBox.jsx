@@ -1,16 +1,20 @@
 import React, { Fragment } from 'react';
 import { Consumer } from './Blog';
 
-const CommentBox = () => (
+const CommentBox = (id) => (
   <Consumer>
-    {({ state, actions }) => (
-      <Fragment>
-        <form onSubmit={actions.replyToComment}>
-          <input value={state.comment} onChange={actions.handleInput} /><br />
-          <input type="submit" value="Submit" />
-        </form>
-      </Fragment>
-    )}
+    {({ state, actions }) => {
+      return (
+        <Fragment>
+          <button onClick={actions.showCommentBox}>{state.showCommentBox ? 'Hide' : 'Reply'}</button>
+          { state.showCommentBox ?
+          <div className="CommentBox">
+            <input placeholder={state.commentInput} onChange={actions.handleInput} /><br />
+            <button onClick={() => actions.insertNewComment(id)}>Submit</button>
+          </div> : <Fragment /> }
+        </Fragment>
+      )
+    }}
   </Consumer>
 );
 export default CommentBox;

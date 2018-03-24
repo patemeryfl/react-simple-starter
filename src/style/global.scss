@@ -190,6 +190,32 @@ pre {
     }
 }
 
+.BlogExample {
+    padding: 10px;
+    background-color: $text;
+    color: white;
+    border-radius: 5px;
+    margin: 5px;
+
+    .Post {
+        background-color: $divider;
+        color: $text;
+        padding: 10px;
+        border-bottom: 10px solid $black;
+        border-radius: 5px;
+    }
+    .Comment {
+        display: flex;
+        flex-direction: row;
+        justify-content: flex-start;
+        padding-left: 10px;
+        background-color: $white;
+        strong {
+            margin-right: 5px;
+        }
+    }
+}
+
 .header {
     background-color: $darker;
     color: $white;

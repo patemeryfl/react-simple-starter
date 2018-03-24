@@ -17,7 +17,7 @@ class Features extends React.Component {
       'Navigation',
       'Higher Order Components',
     ],
-    example: 'HOC',
+    example: 'Blog',
     content: null,
   }
   componentWillMount() {

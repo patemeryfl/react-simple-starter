@@ -3,9 +3,11 @@ import CommentBox from './CommentBox';
 
 const Comment = ({ comment }) => (
   <Fragment>
-    <strong>{comment.user}</strong>
-    <p>{comment.body}</p>
-    <CommentBox />
+    <div className="Comment">
+      <strong>{comment.user}</strong>
+      {comment.body}
+    </div>
+    <CommentBox id={comment.parentId} />
   </Fragment>
 );
 
