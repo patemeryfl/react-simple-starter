@@ -79,7 +79,7 @@ pre {
         }
         button {
             display: inline-block;
-            font-size: 16px;
+            font-size: 16px;  
             background-color: $brand;
             color: $black;
             padding: 10px 25px;
@@ -103,13 +103,16 @@ pre {
         color: $black;
         padding: 0 20px 0 20px;
         position: relative;
-        height: 65vh;
+        p {
+            line-height: 0.7em;
+        }
     }
 }
 
 .about {
-    margin: 50px 0 0 0;
-    color: $white;
+    margin: 50px 0;
+    color: $text;
+    padding: 0.2px 20px;
 }
 
 .examples {

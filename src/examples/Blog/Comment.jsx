@@ -7,7 +7,6 @@ const Comment = ({ comment }) => (
       <strong>{comment.user}</strong>
       {comment.body}
     </div>
-    <CommentBox id={comment.parentId} />
   </Fragment>
 );
 

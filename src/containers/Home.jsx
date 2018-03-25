@@ -20,8 +20,8 @@ class Home extends React.Component {
         <header>
           <h1>React Simple Starter</h1>
           <p>All the latest React features in one.</p>
-          <button><Link to="/examples" href="/examples">Learn More</Link></button>
-          <button><a href="https://www.github.com/patemeryfl/blob/master/docs/index.md">Read The Docs</a></button>
+          <button><Link to="/features" href="/features">Learn More</Link></button>
+          <button><a href="https://github.com/patemeryfl/react-simple-starter/blob/master/src/assets/docs/index.md">Read The Docs</a></button>
         </header>
         <section>
           <Flex type="row">
@@ -37,15 +37,20 @@ npm install`}
             </div>
             <div>
               <h2>Latest Features</h2>
-              <p>Text here</p>
+              <p>React Context [With Examples!]</p>
+              <p>Async Functions</p>
+              <p>Custom Webpack Configuration</p>
+              <p>Recent Babel Plug-Ins</p>
+              <p>SCSS Styling</p>
+              <p>Strict Linting</p>
               <Provider />
             </div>
             <div>
-              <h2>Custom Configuration</h2>
+              <h2>Examples</h2>
               <ul>
-                <li>Item 1</li>
-                <li>Item 2</li>
-                <li>Item 3</li>
+                <li>Blogs/Comments [With Context!]</li>
+                <li>Async Actions</li>
+                <li>Navigation Menu</li>
               </ul>
             </div>
           </Flex>

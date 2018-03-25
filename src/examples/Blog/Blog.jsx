@@ -10,7 +10,7 @@ class Blog extends React.Component {
         id: 0,
         title: 'How To Use Context',
         body: `I just read this great tutorial on Context in this new 
-               React starter called simple-react-starter. Its so great!`,
+               React starter called react-simple-starter. Its so great!`,
         comments: [
           {
             id: 'whio3o',
@@ -40,27 +40,22 @@ class Blog extends React.Component {
         ],
       },
     ],
-    commentInput:'Leave your comment here!',
-    showCommentBox: false,
   }
   actions = {
-    insertNewComment: ({id}) => { 
-      let newComment = {
+    insertNewComment: ({ id }) => {
+      const newComment = {
         id: Math.random(),
         parentId: id,
-        user: null,
-        body: this.state.commentInput,
-      }
-      let blog = this.state.blogs.find(post => { return post.id === id});
+        user: this.state.userName,
+        body: this.state.commentBody,
+      };
+      const blog = this.state.blogs.find(post => post.id === id);
       blog.comments.push(newComment);
-      this.setState(prevState => ([ ...prevState, ...prevState.blogs ]))
+      this.setState(prevState => ([...prevState, ...prevState.blogs]));
     },
     handleInput: (event) => {
-      this.setState({ commentInput: event.target.value });
+      this.setState({ [event.target.name]: event.target.value });
     },
-    showCommentBox: () => {
-      this.setState({showCommentBox: !this.state.showCommentBox})
-    }
   }
   render() {
     return (

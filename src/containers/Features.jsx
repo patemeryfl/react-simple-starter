@@ -15,7 +15,6 @@ class Features extends React.Component {
       'Blog',
       'Async',
       'Navigation',
-      'Higher Order Components',
     ],
     example: 'Blog',
     content: null,
@@ -50,9 +49,6 @@ class Features extends React.Component {
         break;
       case 'Async':
         example = <GitHub />;
-        break;
-      case 'HOC':
-        example = Auth;
         break;
       default:
         example = null;
